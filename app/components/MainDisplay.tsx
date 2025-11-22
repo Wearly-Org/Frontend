@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import ProductCard from "./ProductCard";
+import ModelViewer3D from "./ModelViewer3D";
 
-export default function MainDisplay() {
+export default function MainDisplay({ gender }: { gender: string }) {
     const [viewMode, setViewMode] = useState<"3D" | "Image">("Image");
 
     return (
@@ -29,15 +30,25 @@ export default function MainDisplay() {
                 </div>
 
                 {/* Model Image Placeholder */}
-                <div className="h-[80%] w-full max-w-md bg-gray-200 rounded-2xl flex items-center justify-center relative">
-                    <span className="text-gray-400 font-medium">Model View ({viewMode})</span>
-                    {/* This would be the actual image */}
-                    {/* <img src="/model-placeholder.png" alt="Model" className="h-full w-full object-contain" /> */}
+                <div className="h-[80%] w-full max-w-md bg-gray-200 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                    {viewMode === "Image" ? (
+                        <img
+                            src={gender === "Male" ? "/male-model.png" : "/female-model.png"}
+                            alt={`${gender} Model`}
+                            className="h-full w-full object-cover"
+                        />
+                    ) : (
+                        <ModelViewer3D gender={gender} />
+                    )}
 
-                    {/* Dotted Lines (Visual approximation) */}
-                    <div className="absolute right-0 top-[20%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 rotate-[-15deg] opacity-50 pointer-events-none"></div>
-                    <div className="absolute right-0 top-[50%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 opacity-50 pointer-events-none"></div>
-                    <div className="absolute right-0 bottom-[20%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 rotate-[15deg] opacity-50 pointer-events-none"></div>
+                    {/* Dotted Lines (Visual approximation) - Only show in Image mode */}
+                    {viewMode === "Image" && (
+                        <>
+                            <div className="absolute right-0 top-[20%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 rotate-[-15deg] opacity-50 pointer-events-none"></div>
+                            <div className="absolute right-0 top-[50%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 opacity-50 pointer-events-none"></div>
+                            <div className="absolute right-0 bottom-[20%] w-32 border-t-2 border-dashed border-gray-400 translate-x-1/2 rotate-[15deg] opacity-50 pointer-events-none"></div>
+                        </>
+                    )}
                 </div>
             </div>
 

@@ -1,23 +1,5 @@
 # Wearly - AI Stylist Interface
 
-Wearly is a modern web interface for an AI-powered personal stylist application, designed to help users visualize outfits and get personalized fashion recommendations.
-
-## Features
-
-- **Interactive Sidebar**: Manage user profile (gender, age, height, weight), configure scene settings (season, weather, activities), and upload pictures.
-- **Navigation**: Easy access to Introduction, FAQs, Blog, and Contact pages, along with Account and Cart management.
-- **Main Display**: A central visualization area for the styled model, featuring a toggle between "3D" and "Image" views.
-- **Product Recommendations**: Dynamic product cards displaying recommended items (e.g., Hat, Coat, Pants) with stock status and pricing.
-
-## Tech Stack
-
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Language**: TypeScript
-
-## Getting Started
-
 First, install the dependencies:
 
 ```bash

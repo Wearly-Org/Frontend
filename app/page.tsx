@@ -1,12 +1,17 @@
+"use client";
+
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import MainDisplay from "./components/MainDisplay";
+import { useState } from "react";
 
 export default function Home() {
+  const [gender, setGender] = useState("Male");
+
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#E5E5E5]">
       {/* Left Sidebar */}
-      <Sidebar />
+      <Sidebar gender={gender} setGender={setGender} />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col h-full relative">
@@ -17,7 +22,7 @@ export default function Home() {
 
         {/* Main Display */}
         <div className="flex-1 pt-24">
-          <MainDisplay />
+          <MainDisplay gender={gender} />
         </div>
       </div>
     </div>
