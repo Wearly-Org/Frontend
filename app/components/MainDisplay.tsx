@@ -33,7 +33,7 @@ export default function MainDisplay({ gender }: { gender: string }) {
                 <div className="h-[80%] w-full max-w-md bg-gray-200 rounded-2xl flex items-center justify-center relative overflow-hidden">
                     {viewMode === "Image" ? (
                         <img
-                            src={gender === "Male" ? "/male-model.png" : "/female-model.png"}
+                            src={gender === "Male" ? "/images/male_muscular.png" : "/images/female_fit.png"}
                             alt={`${gender} Model`}
                             className="h-full w-full object-cover"
                         />
